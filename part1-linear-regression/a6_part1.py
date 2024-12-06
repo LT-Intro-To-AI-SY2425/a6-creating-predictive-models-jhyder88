@@ -18,7 +18,7 @@ coef = round(float(model.coef_[0]), 2)
 intercept = round(float(model.intercept_), 2)
 r_squared = model.score(x, y)
 
-x_predict = 
+x_predict = 43 
 prediction = model.predict([[x_predict]])
 # Print out the linear equation and r squared value
 print(f"Model's Linear Equation: y = {coef}x + {intercept}")
@@ -27,4 +27,17 @@ print(f"Prediction is when x is {x_predict}: {prediction}")
 # Predict the the blood pressure of someone who is 43 years old.
 # Print out the prediction
 
+
+plt.figure(figsize=(6,4))
+plt.scatter(x,y, c="Purple")
+plt.scatter(x_predict, prediction, c="blue")
+
+plt.xlabel("Temperature °F")
+plt.ylabel("Chirps per Minute")
+plt.title("Cricket Chirps by Temperature")
+
 # Create the model in matplotlib and include the line of best fit
+plt.plot(x, coef*x + intercept, c="r", label="Line of Best Fit")
+
+plt.legend()
+plt.show()
